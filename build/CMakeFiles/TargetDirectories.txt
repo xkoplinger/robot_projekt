@@ -1,5 +1,0 @@
-/home/adam/robot_projekt/build/CMakeFiles/robot_logic.dir
-/home/adam/robot_projekt/build/CMakeFiles/robot_sim.dir
-/home/adam/robot_projekt/build/CMakeFiles/unit_test.dir
-/home/adam/robot_projekt/build/CMakeFiles/edit_cache.dir
-/home/adam/robot_projekt/build/CMakeFiles/rebuild_cache.dir
