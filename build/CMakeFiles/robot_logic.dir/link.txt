@@ -1,0 +1,2 @@
+/usr/bin/ar qc librobot_logic.a CMakeFiles/robot_logic.dir/src/environment/Environment.cpp.o CMakeFiles/robot_logic.dir/src/lidar/Lidar.cpp.o CMakeFiles/robot_logic.dir/src/robot/Robot.cpp.o
+/usr/bin/ranlib librobot_logic.a
