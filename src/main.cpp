@@ -1,44 +1,63 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <memory>
+#include <cmath>
 #include "environment/Environment.h"
 #include "lidar/Lidar.h"
 
-// Globálne premenné pre callback myši
+// globalne premenne pre callback myši
 struct Scene {
     std::shared_ptr<environment::Environment> env;
     std::shared_ptr<lidar::Lidar> lidar;
     cv::Mat display_map;
     double resolution;
+    std::string map_path; 
 };
 
 void onMouse(int event, int x, int y, int flags, void* userdata) {
+    Scene* scene = static_cast<Scene*>(userdata);
+    if (!scene) return;
+
+    // reset mapy
+    if (event == cv::EVENT_RBUTTONDOWN) {
+        scene->display_map = cv::imread(scene->map_path, cv::IMREAD_COLOR);
+        if (!scene->display_map.empty()) {
+            cv::imshow("Simulator", scene->display_map);
+            std::cout << "Mapa bola vymazana." << std::endl;
+        }
+        return;
+    }
+
     if (event != cv::EVENT_LBUTTONDOWN) return;
 
-    Scene* scene = static_cast<Scene*>(userdata);
+    cv::Vec3b pixel = scene->display_map.at<cv::Vec3b>(y, x);
+    if (pixel[0] == 0 && pixel[1] == 0 && pixel[2] == 0) {
+        std::cout << "Varovanie: Klikol si na prekazku! Vyber volne miesto." << std::endl;
+        return; 
+    }
 
     // pixely na metre
     geometry::RobotState state;
     state.x = x * scene->resolution;
     state.y = y * scene->resolution;
-    state.theta = 0; // robot sa pozerá "dopredu"
+    state.theta = 0; 
 
-    // spustenie lidaru
     auto scan_points = scene->lidar->scan(state);
 
-    // vytvorime pokiu cistej mapy
-    cv::Mat canvas = scene->display_map.clone();
-    cv::cvtColor(canvas, canvas, cv::COLOR_GRAY2BGR); // farebny pre cervene bodky
+    cv::Mat &canvas = scene->display_map;
 
-    // vykreslenie bodov lidaru cervene
+    // body
     for (const auto& pt : scan_points) {
         int px = static_cast<int>(pt.x / scene->resolution);
         int py = static_cast<int>(pt.y / scene->resolution);
-        cv::circle(canvas, cv::Point(px, py), 2, cv::Scalar(0, 0, 255), -1);
+        
+        if (px >= 0 && px < canvas.cols && py >= 0 && py < canvas.rows) {
+            cv::circle(canvas, cv::Point(px, py), 1, cv::Scalar(0, 0, 255), -1);
+        }
     }
 
-    // vykreslenie robota
-    cv::circle(canvas, cv::Point(x, y), 5, cv::Scalar(0, 255, 0), -1);
+    // robot
+    cv::circle(canvas, cv::Point(x, y), 3, cv::Scalar(0, 255, 0), -1);
 
     cv::imshow("Simulator", canvas);
 }
@@ -46,36 +65,49 @@ void onMouse(int event, int x, int y, int flags, void* userdata) {
 int main() {
     try {
         double res = 0.05; 
+        std::string path = "map/opk-map.png";
         
         // Inicializácia prostredia
         environment::Config env_cfg;
-        env_cfg.map_filename = "map/opk-map.png";
+        env_cfg.map_filename = path;
         env_cfg.resolution = res;
         auto env = std::make_shared<environment::Environment>(env_cfg);
 
-        // 360 stupnov, 360 lucov
+        // 360 stupňov
         lidar::Config lidar_cfg;
         lidar_cfg.beam_count = 360;
         lidar_cfg.first_ray_angle = 0;
         lidar_cfg.last_ray_angle = 2 * M_PI;
-        lidar_cfg.max_range = 5.0; // 5 metrov dosah
+        lidar_cfg.max_range = 5.0; 
         auto ldr = std::make_shared<lidar::Lidar>(lidar_cfg, env);
 
-        // priprava sceny pre mys
         Scene scene;
         scene.env = env;
         scene.lidar = ldr;
         scene.resolution = res;
-        scene.display_map = cv::imread(env_cfg.map_filename, cv::IMREAD_GRAYSCALE);
+        scene.map_path = path;
+        
+        scene.display_map = cv::imread(path, cv::IMREAD_COLOR);
 
         if (scene.display_map.empty()) throw std::runtime_error("Mapa nenajdena!");
 
-        cv::namedWindow("Simulator");
+        // Resizable
+        cv::namedWindow("Simulator", cv::WINDOW_NORMAL | cv::WINDOW_KEEPRATIO);
+        cv::resizeWindow("Simulator", 800, 600);
+        
         cv::setMouseCallback("Simulator", onMouse, &scene);
 
-        std::cout << "Klikni niekam do mapy pre umiestnenie robota..." << std::endl;
+        std::cout << "OVLADANIE:" << std::endl;
+        std::cout << "  Lave tlacidlo: Umiestni robota" << std::endl;
+        std::cout << "  Prave tlacidlo: Vymaz mapu" << std::endl;
+        std::cout << "  ESC: Ukonci program" << std::endl;
+
         cv::imshow("Simulator", scene.display_map);
-        cv::waitKey(0);
+
+        while (true) {
+            int key = cv::waitKey(10);
+            if (key == 27) break;
+        }
 
     } catch (const std::exception& e) {
         std::cerr << "Chyba: " << e.what() << std::endl;
