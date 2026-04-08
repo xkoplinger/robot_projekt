@@ -22,5 +22,5 @@ bool Environment::isOccupied(double x, double y) const {
     // 0 stena
     return map_image.at<uchar>(py, px) == 0;
 }
-// getHeight a getWidth davaju map_image.rows/cols * resolution
+
 }

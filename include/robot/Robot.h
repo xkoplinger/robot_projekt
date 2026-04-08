@@ -1,5 +1,9 @@
 #pragma once
 #include <functional>
+#include <thread>
+#include <mutex>
+#include <atomic>
+#include <chrono>
 #include "types/Geometry.h"
 
 namespace robot {
@@ -24,9 +28,14 @@ protected:
     void update(const geometry::Twist& velocity, double dt);
 
 private:
-  
     Config config_;
-    geometry::RobotState state_; //robot pamata kde je
+    geometry::RobotState state_; 
     CollisionCb collision_cb_;
+
+    std::thread worker_thread_;
+    mutable std::mutex mutex_;
+    std::atomic<bool> running_{false};
+    geometry::Twist target_velocity_;
+    std::chrono::steady_clock::time_point last_command_time_;
 };
-} 
+}
