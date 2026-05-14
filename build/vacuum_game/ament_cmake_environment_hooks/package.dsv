@@ -1,0 +1,4 @@
+source;share/vacuum_game/local_setup.bash
+source;share/vacuum_game/local_setup.dsv
+source;share/vacuum_game/local_setup.sh
+source;share/vacuum_game/local_setup.zsh

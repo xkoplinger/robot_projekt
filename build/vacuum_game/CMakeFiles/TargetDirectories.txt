@@ -1,0 +1,12 @@
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/uninstall.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/vacuum_game_uninstall.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/vacuum_node.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/visualization_node.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/game_node.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/test.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/edit_cache.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/rebuild_cache.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/list_install_components.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/install.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/install/local.dir
+/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game/CMakeFiles/install/strip.dir

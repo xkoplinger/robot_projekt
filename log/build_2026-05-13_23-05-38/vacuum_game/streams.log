@@ -1,0 +1,82 @@
+[0.005s] Invoking command in '/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/adam/ros2_ws/src/vacuum_game -DCMAKE_INSTALL_PREFIX=/home/adam/ros2_ws/src/vacuum_game/install/vacuum_game
+[0.038s] -- The C compiler identification is GNU 13.3.0
+[0.086s] -- The CXX compiler identification is GNU 13.3.0
+[0.095s] -- Detecting C compiler ABI info
+[0.181s] -- Detecting C compiler ABI info - done
+[0.191s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.191s] -- Detecting C compile features
+[0.192s] -- Detecting C compile features - done
+[0.200s] -- Detecting CXX compiler ABI info
+[0.291s] -- Detecting CXX compiler ABI info - done
+[0.297s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.298s] -- Detecting CXX compile features
+[0.298s] -- Detecting CXX compile features - done
+[0.300s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.395s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.460s] -- Found rclcpp: 28.1.16 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.484s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.492s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.501s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.513s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.563s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.564s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.607s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[0.619s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[0.634s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.681s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[0.701s] -- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)
+[0.738s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[0.755s] -- Found std_srvs: 5.3.6 (/opt/ros/jazzy/share/std_srvs/cmake)
+[0.766s] -- Found tf2: 0.36.19 (/opt/ros/jazzy/share/tf2/cmake)
+[0.769s] -- Found tf2_ros: 0.36.19 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[0.849s] -- Found tf2_geometry_msgs: 0.36.19 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)
+[0.857s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[0.858s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[0.858s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.867s] -- Found cv_bridge: 4.1.0 (/opt/ros/jazzy/share/cv_bridge/cmake)
+[0.936s] -- Configuring done (0.9s)
+[0.949s] -- Generating done (0.0s)
+[0.954s] -- Build files have been written to: /home/adam/ros2_ws/src/vacuum_game/build/vacuum_game
+[0.960s] Invoked command in '/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/adam/ros2_ws/src/vacuum_game -DCMAKE_INSTALL_PREFIX=/home/adam/ros2_ws/src/vacuum_game/install/vacuum_game
+[0.961s] Invoking command in '/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/adam/ros2_ws/src/vacuum_game/build/vacuum_game -- -j12 -l12
+[0.993s] [ 55%] [32mBuilding CXX object CMakeFiles/game_node.dir/src/nodes/GameNode.cpp.o[0m
+[0.993s] [ 55%] [32mBuilding CXX object CMakeFiles/visualization_node.dir/src/nodes/VisualizationNode.cpp.o[0m
+[0.993s] [ 55%] [32mBuilding CXX object CMakeFiles/vacuum_node.dir/src/core/Robot.cpp.o[0m
+[0.993s] [ 55%] [32mBuilding CXX object CMakeFiles/vacuum_node.dir/src/nodes/VacuumNode.cpp.o[0m
+[0.993s] [ 55%] [32mBuilding CXX object CMakeFiles/vacuum_node.dir/src/core/Lidar.cpp.o[0m
+[0.994s] [ 66%] [32mBuilding CXX object CMakeFiles/vacuum_node.dir/src/core/Environment.cpp.o[0m
+[2.694s] [ 77%] [32m[1mLinking CXX executable game_node[0m
+[2.762s] [ 77%] Built target game_node
+[5.869s] [ 88%] [32m[1mLinking CXX executable visualization_node[0m
+[6.055s] [ 88%] Built target visualization_node
+[10.145s] [100%] [32m[1mLinking CXX executable vacuum_node[0m
+[10.615s] [100%] Built target vacuum_node
+[10.623s] Invoked command in '/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/adam/ros2_ws/src/vacuum_game/build/vacuum_game -- -j12 -l12
+[10.628s] Invoking command in '/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/adam/ros2_ws/src/vacuum_game/build/vacuum_game
+[10.632s] -- Install configuration: ""
+[10.632s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/lib/vacuum_game/vacuum_node
+[10.635s] -- Set non-toolchain portion of runtime path of "/home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/lib/vacuum_game/vacuum_node" to ""
+[10.635s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/lib/vacuum_game/game_node
+[10.635s] -- Set non-toolchain portion of runtime path of "/home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/lib/vacuum_game/game_node" to ""
+[10.635s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/lib/vacuum_game/visualization_node
+[10.637s] -- Set non-toolchain portion of runtime path of "/home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/lib/vacuum_game/visualization_node" to ""
+[10.637s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/config
+[10.637s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/config/game_params.yaml
+[10.637s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/map
+[10.637s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/map/opk-map.png
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/ament_index/resource_index/package_run_dependencies/vacuum_game
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/ament_index/resource_index/parent_prefix_path/vacuum_game
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/environment/ament_prefix_path.sh
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/environment/ament_prefix_path.dsv
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/environment/path.sh
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/environment/path.dsv
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/local_setup.bash
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/local_setup.sh
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/local_setup.zsh
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/local_setup.dsv
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/package.dsv
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/ament_index/resource_index/packages/vacuum_game
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/cmake/vacuum_gameConfig.cmake
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/cmake/vacuum_gameConfig-version.cmake
+[10.638s] -- Installing: /home/adam/ros2_ws/src/vacuum_game/install/vacuum_game/share/vacuum_game/package.xml
+[10.639s] Invoked command in '/home/adam/ros2_ws/src/vacuum_game/build/vacuum_game' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/adam/ros2_ws/src/vacuum_game/build/vacuum_game
